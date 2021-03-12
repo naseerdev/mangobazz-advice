@@ -4,6 +4,7 @@ import './style/style.css';
 import info from './info.svg';
 import reload from './refresh.svg';
 import ReactTooltip from 'react-tooltip';
+import Skeleton from 'react-loading-skeleton';
 
 function App() {
 
@@ -57,7 +58,9 @@ function App() {
             <div className="icon">
               <img src={info} alt="" />
             </div>
-            <p> {advice}</p>
+            <p> {
+              reloadFlag ? <Skeleton count={3} /> : advice
+            }</p>
             <div className="reload">
               {advice && <img className={reloadFlag ? "reload-active" : ''} src={reload} alt="refresh-logo" onClick={handleClick} />}
             </div>
